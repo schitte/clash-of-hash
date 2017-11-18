@@ -21,7 +21,7 @@ app.get('/ping', function (req, res) {
    request.get("https://api.coinhive.com/user/balance", {
     qs: {
       name: teams[i],
-      secret: PROCESS.ENV.HIVE_SECRET;
+      secret: PROCESS.ENV.HIVE_SECRET
     }
    }, function(error, response, body) {
      console.log("Response: ", response.balance);
