@@ -32,6 +32,6 @@ app.get('/ping', function (req, res) {
   //add data to firebase 
 });
 
-app.listen(process.env.PORT, function() {
- console.log('Server running on ' + process.env.PORT);
+app.listen(process.env.PORT || 8889, function() {
+ console.log('Server running on ' + process.env.PORT || 8889);
 });
