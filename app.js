@@ -28,7 +28,7 @@ app.get('/ping', function (req, res) {
     if(error) {
      console.log("Hive Error: ", error);
     } else {
-     console.log("Balance: ", body.balance);
+     console.log("Balance: ", JSON.parse(body).balance);
     };
    }); 
   };
