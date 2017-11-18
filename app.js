@@ -3,10 +3,17 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
 
-// Import Admin SDK
 var admin = require("firebase-admin");
 
-// Get a database reference
+admin.initializeApp({
+  credential: admin.credential.cert({
+    projectId: "clashofhash-841f6",
+    clientEmail: "firebase-adminsdk-qec66@clashofhash-841f6.iam.gserviceaccount.com",
+    privateKey: JSON.parse(process.env.FB_KEY)
+  }),
+  databaseURL: "https://clashofhash-841f6.firebaseio.com"
+});
+
 var db = admin.database();
 
 app.use(bodyParser.urlencoded({
