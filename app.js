@@ -27,10 +27,10 @@ app.get('/ping', function (req, res) {
      console.log("Response: ", response.balance);
      console.log("Body: ", body.balance);
    }); 
-  });
+  };
   //fetch data from coinhive
   //add data to firebase 
-}
+});
 
 app.listen(process.env.PORT, function() {
  console.log('Server running on ' + process.env.PORT);
