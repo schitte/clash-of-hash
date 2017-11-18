@@ -26,8 +26,8 @@ app.get('/ping', function (req, res) {
     }
    }, function(error, response, body) {
      console.log("Error: ", error);
-     console.log("Response: ", response.balance);
-     console.log("Body: ", body.balance);
+     console.log("Response: ", response);
+     console.log("Body: ", body);
    }); 
   };
   //fetch data from coinhive
