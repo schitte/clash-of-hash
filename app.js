@@ -18,20 +18,18 @@ app.get('/test', function (req, res) {
 app.get('/ping', function (req, res) {
   //monitor pings here every hour.
   for(var i=0; i < teams.length; i++) {
-    request({
-      url: "https://api.coinhive.com/user/balance",
-      method: "GET"
-    }, qs: {
+   request.get("https://api.coinhive.com/user/balance", {
+    qs: {
       name: teams[i],
       secret: PROCESS.ENV.HIVE_SECRET;
-    },function(error, response, body) {
-      console.log("Response: ", response.balance);
-      console.log("Body: ", body.balance);
-    });
+    }
+   }, function(error, response, body) {
+     console.log("Response: ", response.balance);
+     console.log("Body: ", body.balance);
+   }); 
   });
   //fetch data from coinhive
-  //add data to firebase
-  
+  //add data to firebase 
 }
 
 app.listen(process.env.PORT, function() {
