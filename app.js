@@ -25,9 +25,11 @@ app.get('/ping', function (req, res) {
       secret: process.env.HIVE_SECRET
     }
    }, function(error, response, body) {
-     console.log("Error: ", error);
-     console.log("Response: ", response);
-     console.log("Body: ", body);
+    if(error) {
+     console.log("Hive Error: ", error);
+    } else {
+     console.log("Balance: ", body.balance);
+    };
    }); 
   };
   //fetch data from coinhive
