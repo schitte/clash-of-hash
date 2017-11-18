@@ -3,6 +3,12 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
 
+// Import Admin SDK
+var admin = require("firebase-admin");
+
+// Get a database reference
+var db = admin.database();
+
 app.use(bodyParser.urlencoded({
  extended: true
 }));
