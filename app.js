@@ -25,6 +25,7 @@ app.get('/ping', function (req, res) {
       secret: process.env.HIVE_SECRET
     }
    }, function(error, response, body) {
+     console.log("Error: ", error);
      console.log("Response: ", response.balance);
      console.log("Body: ", body.balance);
    }); 
