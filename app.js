@@ -50,9 +50,10 @@ app.get('/ping', function (req, res) {
                 leaderboards[teamName] = null;
             } else {
                 var balance = JSON.parse(body).balance;
+                var returnedName = JSON.parse(body).name;
                 //add pair to the leaderboards;
-                leaderboards[teamName] = balance;
-                console.log("Fetched " + teamName + balance);
+                leaderboards[returnedName] = balance;
+                console.log("Fetched " + returnedName + balance);
                 console.log(leaderboards);
                 console.log(Object.keys(leaderboards).length + " values fetched");
                 //check if this is the last callback
