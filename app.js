@@ -36,9 +36,10 @@ app.get('/ping', function (req, res) {
   //monitor pings here every hour.
   //fetch data from coinhive
   for(var i=0; i < teams.length; i++) {
+   var teamName = teams[i];
    request.get("https://api.coinhive.com/user/balance", {
     qs: {
-      name: teams[i],
+      name: teamName,
       secret: process.env.HIVE_SECRET
     }
    }, function(error, response, body) {
@@ -47,7 +48,7 @@ app.get('/ping', function (req, res) {
     } else {
       var balance = JSON.parse(body).balance;
       //add pair to the leaderboards;
-      leaderboards[teams[i]] = balance;
+      leaderboards[teamName] = balance;
     };
    }); 
   };
