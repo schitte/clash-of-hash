@@ -32,6 +32,7 @@ app.get('/test', function (req, res) {
 });
 
 app.get('/ping', function (req, res) {
+    console.log('ping');
     //reset data
     leaderboards = {};
     //monitor pings here every hour.
@@ -46,10 +47,12 @@ app.get('/ping', function (req, res) {
         }, function(error, response, body) {
             if(error) {
                 console.log("Hive Error: ", error);
+                leaderboards[teamName] = null;
             } else {
                 var balance = JSON.parse(body).balance;
                 //add pair to the leaderboards;
                 leaderboards[teamName] = balance;
+                console.log(Object.keys(leaderboards).length + " values fetched");
                 //check if this is the last callback
                 if (teams.length === Object.keys(leaderboards).length) {
                   //save data
