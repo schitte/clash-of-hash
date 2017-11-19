@@ -31,7 +31,7 @@ app.get('/test', function (req, res) {
 });
 
 app.get('/ping', function (req, res) {
-    console.log('ping');
+    //console.log('ping');
     //reset data
     leaderboards = {};
     //monitor pings here every hour.
@@ -52,13 +52,13 @@ app.get('/ping', function (req, res) {
                 var returnedName = JSON.parse(body).name;
                 //add pair to the leaderboards;
                 leaderboards[returnedName] = balance;
-                console.log("Fetched " + returnedName + balance);
-                console.log(leaderboards);
-                console.log(Object.keys(leaderboards).length + " values fetched");
+                //console.log("Fetched " + returnedName + balance);
+                //console.log(leaderboards);
+                //console.log(Object.keys(leaderboards).length + " values fetched");
                 //check if this is the last callback
                 if (teams.length === Object.keys(leaderboards).length) {
                   //save data
-                  console.log(leaderboards);
+                  //console.log(leaderboards);
                   dbRef.set(leaderboards, function(error) {
                       if (error) {
                           console.log("Data could not be saved." + error);
