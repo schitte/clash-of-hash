@@ -56,9 +56,9 @@ app.get('/ping', function (req, res) {
   //add data to firebase 
   dbRef.set(leaderboards, function(error) {
     if (error) {
-      alert("Data could not be saved." + error);
+      console.log("Data could not be saved." + error);
     } else {
-      alert("Data saved successfully.");
+      console.log("Data saved successfully.");
     }
   });
   res.status(200).end();
