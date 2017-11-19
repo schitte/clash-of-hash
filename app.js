@@ -24,8 +24,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 var leaderboards = {};
-var teams = ["Coke", "Pepsi"];
-//var teams = ["Coke", "Pepsi", "Beatles", "RollingStones", "PlayStation", "XBOX", "India", "Pakistan", "Marvel", "DC", "Ferrari", "Lamborghini"];
+var teams = ["Coke", "Pepsi", "Beatles", "RollingStones", "PlayStation", "XBOX", "India", "Pakistan", "Marvel", "DC", "Ferrari", "Lamborghini"];
 
 app.get('/test', function (req, res) {
  res.send('null');
