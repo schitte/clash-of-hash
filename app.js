@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
+var leaderboards = {};
 var teams = ["Coke", "Pepsi"];
 //var teams = ["Coke", "Pepsi", "Beatles", "RollingStones", "PlayStation", "XBOX", "India", "Pakistan", "Marvel", "DC", "Ferrari", "Lamborghini"];
 
@@ -30,7 +31,10 @@ app.get('/test', function (req, res) {
 });
 
 app.get('/ping', function (req, res) {
+  //reset data
+  leaderboards = {};
   //monitor pings here every hour.
+  //fetch data from coinhive
   for(var i=0; i < teams.length; i++) {
    request.get("https://api.coinhive.com/user/balance", {
     qs: {
@@ -41,12 +45,14 @@ app.get('/ping', function (req, res) {
     if(error) {
      console.log("Hive Error: ", error);
     } else {
-     console.log("Balance: ", JSON.parse(body).balance);
+      var balance = JSON.parse(body).balance;
+      //add pair to the leaderboards;
+      leaderboards[teams[i]] = balance;
     };
    }); 
   };
-  //fetch data from coinhive
   //add data to firebase 
+  db.set(leaderboards);
 });
 
 app.listen(process.env.PORT || 8889, function() {
