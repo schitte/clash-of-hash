@@ -54,6 +54,7 @@ app.get('/ping', function (req, res) {
    }); 
   };
   //add data to firebase 
+  console.log(leaderboards);
   dbRef.set(leaderboards, function(error) {
     if (error) {
       console.log("Data could not be saved." + error);
@@ -61,7 +62,7 @@ app.get('/ping', function (req, res) {
       console.log("Data saved successfully.");
     }
   });
-  res.status(200).end();
+  res.status(200).send(leaderboards);
 });
 
 app.listen(process.env.PORT || 8889, function() {
