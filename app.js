@@ -51,7 +51,7 @@ app.get('/ping', function (req, res) {
                 //add pair to the leaderboards;
                 leaderboards[teamName] = balance;
                 //check if this is the last callback
-                if (teams.length === leaderboards.length) {
+                if (teams.length === Object.keys(leaderboards).length) {
                   //save data
                   console.log(leaderboards);
                   dbRef.set(leaderboards, function(error) {
