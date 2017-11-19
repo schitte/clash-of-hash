@@ -15,6 +15,7 @@ admin.initializeApp({
 });
 
 var db = admin.database();
+var dbRef = db.ref("board");
 
 app.use(bodyParser.urlencoded({
  extended: true
