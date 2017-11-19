@@ -54,7 +54,7 @@ app.get('/ping', function (req, res) {
    }); 
   };
   //add data to firebase 
-  db.set(leaderboards);
+  dbRef.set(leaderboards);
 });
 
 app.listen(process.env.PORT || 8889, function() {
